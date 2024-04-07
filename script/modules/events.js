@@ -17,6 +17,12 @@ export const events = (data, login) => {
     form.reset();
     document.querySelector('.btn-primary').setAttribute('disabled', 'disabled');
   });
+
+  form.addEventListener('reset', e => {
+    // e.preventDefault();
+    document.querySelector('.btn-primary').setAttribute('disabled', 'disabled');
+  });
+
   document.querySelector('.btn-primary').setAttribute('disabled', 'disabled');
   input.addEventListener('input', e => {
     if (input.value === '') {

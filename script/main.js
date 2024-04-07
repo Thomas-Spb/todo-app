@@ -27,7 +27,6 @@ import { modalForm } from './modules/elements.js';
     const formData = new FormData(target);
     // console.log('formData: ', formData);
     const login = Object.fromEntries(formData).modalName;
-    console.log('login: ', login);
     modalForm.parentElement.parentElement.style.display = 'none';
     // setStorage(login);
     init(login);

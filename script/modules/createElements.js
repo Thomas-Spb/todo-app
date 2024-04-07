@@ -7,7 +7,7 @@ export const createRow = (newTask, number) => {
   const tdStatus = document.createElement('td');
   const btnGroup = document.createElement('td');
 
-  console.log(newTask.task);
+  //   console.log(newTask.task);
 
   tdTask.textContent = newTask.task;
 

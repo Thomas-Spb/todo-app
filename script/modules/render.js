@@ -2,12 +2,7 @@ import { createRow } from './createElements.js';
 import { tbody } from './elements.js';
 
 export const render = data => {
-  //   console.log(data);
-  //   const nameTitle = 'Thomas';
-  //   createApp(app, nameTitle);
   data.forEach((task, index) => {
-    console.log('task: ', task);
-
     createRow(task, index + 1);
   });
   //   createRow(data);

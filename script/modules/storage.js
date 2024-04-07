@@ -1,10 +1,8 @@
 export const getStorage = login => {
   if (localStorage.getItem(login) === null) {
     console.log(localStorage.getItem(login));
-    console.log('123');
     return [];
   } else {
-    console.log('456');
     return JSON.parse(localStorage.getItem(login));
   }
 };
