@@ -1,7 +1,7 @@
 import { getStorage } from './storage.js';
 
 export const taskSuccess = (task, login) => {
-  console.log('task: ', task);
+  //   console.log('task: ', task);
 
   if (task.cells[2].textContent === 'В процессе') {
     task.classList.add('table-success');
@@ -14,10 +14,11 @@ export const taskSuccess = (task, login) => {
     data.map(item => {
       if (item.task === task.cells[1].textContent) {
         item.status = 'done';
+        item.task = task.cells[1].textContent;
       }
     });
     localStorage.setItem(login, JSON.stringify(data));
-    console.log('В процессе');
+    // console.log('В процессе');
   } else {
     task.classList.add('table-light', 'table-warning', 'table-danger');
     task.cells[2].textContent = 'В процессе';
@@ -28,7 +29,7 @@ export const taskSuccess = (task, login) => {
     data.map(item => {
       if (item.task === task.cells[1].textContent) {
         item.status = 'active';
-        console.log(item.status);
+        // console.log(item.status);
       }
     });
     localStorage.setItem(login, JSON.stringify(data));
@@ -42,13 +43,14 @@ export const taskRemove = (task, number, login) => {
   task.remove();
 };
 
-export const taskEdit = task => {
+export const taskEdit = (task, index, login) => {
   task.cells[1].setAttribute('contenteditable', 'true');
+  taskEditSave(task, index, login);
+  //   debugger;
+  //   taskSuccess(task, login);
 };
 
 export const taskEditSave = (task, number, login) => {
-  console.log('task, number, login: ', task, number, login);
-
   const data = getStorage(login);
   data[number].task = task.cells[1].textContent;
   localStorage.setItem(login, JSON.stringify(data));

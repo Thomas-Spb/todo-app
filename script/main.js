@@ -5,13 +5,7 @@ import { render } from './modules/render.js';
 import { modalForm } from './modules/elements.js';
 
 {
-  const data = [
-    { number: 0, task: 'fasdf4214asdf', status: 'active', important: 'Важная' },
-    // { number: 1, task: 'task 2', status: 'finish', important: 'Важная' },
-    // { number: 2, task: 'fasdf4214asdf', status: 'active', important: 'Срочная' },
-    // { number: 3, task: 'task 2', status: 'finish' },
-    // { number: 4, task: 'task 2', status: 'active' },
-  ];
+  const data = [{ number: 0, task: 'fasdf4214asdf', status: 'active', important: 'Важная' }];
 
   const init = login => {
     render(getStorage(login));

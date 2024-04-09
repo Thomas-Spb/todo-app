@@ -31,9 +31,12 @@ export const events = (data, login) => {
       document.querySelector('.btn-primary').removeAttribute('disabled', 'disabled');
     }
   });
+
   table.addEventListener('click', e => {
+    // console.log('table: ', table);
     const target = e.target;
     const tasks = [...tbody.rows];
+    console.log('tasks: ', tasks);
     if (target.closest('.btn-success')) {
       tasks.forEach(item => {
         if (target.closest('tr') === item) {
@@ -52,18 +55,25 @@ export const events = (data, login) => {
       });
     }
     if (target.closest('.btn-edit')) {
-      tasks.forEach(item => {
+      tasks.forEach((item, index) => {
         if (target.closest('tr') === item) {
-          taskEdit(item);
+          taskEdit(item, index, login);
+          //   taskEditSave(item, index, login); //121233
         }
       });
     }
     tasksNumberChange();
-  });
-  const tasks = [...tbody.rows];
-  tasks.forEach((item, index) => {
-    item.cells[1].addEventListener('blur', () => {
-      taskEditSave(item, index, login);
+    tasks.forEach((item, index) => {
+      item.cells[1].addEventListener('blur', () => {
+        taskEditSave(item, index, login);
+      });
     });
   });
+
+  //   const tasks = [...tbody.rows];
+  //   tasks.forEach((item, index) => {
+  //     item.cells[1].addEventListener('blur', () => {
+  //       taskEditSave(item, index, login);
+  //     });
+  //   });
 };
